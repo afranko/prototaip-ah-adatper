@@ -1,0 +1,14 @@
+systems:
+  service-registry:
+    addr:
+    port:
+  authorizator:
+    addr:
+    port:
+  orchestrator:
+    addr:
+    port:
+log:
+  to-file: false
+  path: "log"
+
