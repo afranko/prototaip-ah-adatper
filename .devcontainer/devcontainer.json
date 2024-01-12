@@ -1,0 +1,14 @@
+{
+    "build": {
+        "dockerfile": "DOCKERFILE",
+        "context": ".."
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python"
+			]
+		}
+	},
+	"forwardPorts": [9556]
+}

@@ -1,0 +1,12 @@
+services:
+  db:
+    image: aitiaiiot/arrowhead-database:4.6.1
+    container_name: arrowhead-database-paa-test
+    ports:
+      - "3306:3306"
+    volumes:
+      - arrowhead-database-paa-test:/var/lib/mysql
+
+volumes:
+  arrowhead-database-paa-test: {}
+

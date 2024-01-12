@@ -1,0 +1,37 @@
+services:
+  sr:
+    image: aitiaiiot/arrowhead-system:4.6.1
+    container_name: arrowhead-serviceregistry-paa-test
+    ports:
+      - "8443:8443"
+    volumes:
+      - ./properties/serviceregistry/application.properties:/opt/arrowhead/application.properties
+      - ./properties/serviceregistry/certificates:/opt/arrowhead/certificates
+    environment:
+      - SYSTEM_NAME=serviceregistry
+
+  au:
+    image: aitiaiiot/arrowhead-system:4.6.1
+    container_name: arrowhead-authorization-paa-test
+    ports:
+      - "8445:8445"
+    volumes:
+      - ./properties/authorization/application.properties:/opt/arrowhead/application.properties
+      - ./properties/authorization/certificates:/opt/arrowhead/certificates
+    environment:
+      - SYSTEM_NAME=authorization
+    depends_on:
+      - sr
+
+  or:
+    image: aitiaiiot/arrowhead-system:4.6.1
+    container_name: arrowhead-orchestrator-paa-test
+    ports:
+      - "8441:8441"
+    volumes:
+      - ./properties/orchestrator/application.properties:/opt/arrowhead/application.properties
+      - ./properties/orchestrator/certificates:/opt/arrowhead/certificates
+    environment:
+      - SYSTEM_NAME=orchestrator
+    depends_on:
+      - sr

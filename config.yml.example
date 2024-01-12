@@ -1,14 +1,33 @@
-systems:
+core:
   service-registry:
-    addr:
-    port:
-  authorizator:
-    addr:
-    port:
-  orchestrator:
-    addr:
-    port:
-log:
-  to-file: false
-  path: "log"
+    uri:  "192.168.0.100"
+    port: 8443
 
+  authorization:
+    uri:  "192.168.0.100"
+    port: 8445
+
+  orchestrator:
+    uri:  "192.168.0.100"
+    port: 8441
+
+provider:
+  sys-name: "prototaip"
+  uri:      "192.168.0.100"
+  port:     9556
+  sysid:    0
+
+log:
+  to-file:  false
+  path:     "log"
+
+auto-setup:
+  sys-reg:            true
+  service-reg:        true
+  auth-rules:         true
+  consumers:
+    - 222
+
+certpath: "./../certs"
+
+nbpath: "./../files"

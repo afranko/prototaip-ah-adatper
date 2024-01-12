@@ -1,0 +1,3 @@
+[submodule "client-library-python"]
+	path = client-library-python
+	url = git@github.com:arrowhead-f/client-library-python.git
